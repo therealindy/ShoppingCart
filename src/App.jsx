@@ -29,7 +29,7 @@ export default function Product() {
     setCart(cart.filter((product) => product.id !== prd_del.id));
   }
 
-  // เพิ่มจำนว
+  // เพิ่มจำนวน
   function handleIncreaseClick(productId) {
     setCart(
       cart.map((product) =>
@@ -56,7 +56,7 @@ export default function Product() {
 
     // ถ้ามีคูปองส่วนลด
     if (coupon && coupon === 'INDYZA55+') {
-      total = total * 0.75; // ลด 10% 
+      total = total * 0.75; // ลด 25% 
     }
 
     return total.toFixed(2);
@@ -66,7 +66,7 @@ export default function Product() {
   function applyCoupon(code) {
     if (code === 'INDYZA55+') {
       setCoupon(code);
-      setDiscount(25); // ลด 10%
+      setDiscount(25); // ลด 25%
     } else {
       setCoupon(null);
       setDiscount(0);
@@ -121,6 +121,7 @@ export default function Product() {
         </div>
 
         <h2 className='text-3xl font-bold py-3'>รายการสินค้า</h2>
+        <h2>กดที่ภาพเพื่อเลือกสิ่งค้า</h2>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative">
