@@ -123,7 +123,7 @@ export default function Product() {
         </div>
 
         <h2 className='text-3xl font-bold py-3'>รายการสินค้า</h2>
-        <h2 className='text-1xl font-bold py-3'>* cick!! ที่ภาพเพื่อเลือกสินค้า *</h2> 
+        <h2 className='text-1xl font-bold py-3'>* click!! ที่ภาพเพื่อเลือกสินค้า *</h2> 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative">
