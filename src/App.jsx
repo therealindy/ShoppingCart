@@ -118,12 +118,12 @@ export default function Product() {
           <h2 >ค่าขนส่ง: {shippingCost} THB</h2>
         </div>
 
-        <div className="text-3xl font-bold text-rose-700">
+        <div className="text-2xl font-bold text-rose-700">
           <h2>รวมราคา: {calculateTotalPrice()} THB</h2>
         </div>
 
         <h2 className='text-3xl font-bold py-3'>รายการสินค้า</h2>
-        <h2>กดที่ภาพเพื่อเลือกสิ่งค้า</h2>
+        <h2 className='text-1xl font-bold py-3'>* cick!! ที่ภาพเพื่อเลือกสินค้า *</h2> 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative">
