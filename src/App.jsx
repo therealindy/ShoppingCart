@@ -100,7 +100,7 @@ export default function Product() {
                 </button>
               </div>
               <button onClick={() => delToCart(product)}>
-                สินค้าออก
+                นำสินค้าออก
               </button>
             </div>
           ))}
