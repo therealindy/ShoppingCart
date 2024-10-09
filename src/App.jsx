@@ -99,9 +99,11 @@ export default function Product() {
                 </svg>
                 </button>
               </div>
-              <button onClick={() => delToCart(product)}>
-                นำสินค้าออก
-              </button>
+              <div className="text-1xl font-bold text-rose-700">
+                <button onClick={() => delToCart(product)}>
+                  นำสินค้าออก
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -116,7 +118,7 @@ export default function Product() {
           <h2 >ค่าขนส่ง: {shippingCost} THB</h2>
         </div>
 
-        <div className="text-2xl font-bold text-rose-700">
+        <div className="text-3xl font-bold text-rose-700">
           <h2>รวมราคา: {calculateTotalPrice()} THB</h2>
         </div>
 
