@@ -49,7 +49,12 @@ export default function Product() {
     );
   }
 
-  //ราคารวม
+  //ราคารวมสินค้าทั้งหมด ไม่รวมค่าส่ง
+  function calculateTotalProductPrice() {
+    return cart.reduce((total, product) => total + product.price * product.count, 0).toFixed(2);
+  }
+
+  // ราคารวมทั้งหมด รวมค่าส่ง
   function calculateTotalPrice() {
     let total = cart.reduce((total, product) => total + product.price * product.count, 0);
     total += shippingCost; // เพิ่มค่าขนส่ง
@@ -72,10 +77,6 @@ export default function Product() {
       setDiscount(0);
     }
   }
-
-
-
-
 
   return (
     <div className="bg-white">
@@ -108,22 +109,30 @@ export default function Product() {
           ))}
         </div>
 
+        {/* เพิ่มการแสดงราคารวมสินค้าทั้งหมดไม่รวมค่าส่ง */}
+        <div className="text-xl  text-black-700">
+          <h2>รวมการสั่งซื้อ: {calculateTotalProductPrice()} THB</h2>
+        </div>
+
+        <div className="text-xl  text-black-700">
+          <h2>การจัดส่ง: {shippingCost} THB</h2>
+        </div>
+
+
+        {/* ใส่คูปอง*/}
         <div className="mt-4">
           <h2 className='text-xl text-blue-700'>ใส่โค้ดคูปอง:</h2>
           <input type="text" className="border-2 border-gray-300 p-2 rounded-lg focus:outline-none focus:border-blue-500" onChange={(e) => applyCoupon(e.target.value)} />
           {coupon && <p>คูปองถูกใช้:{coupon}</p>}
         </div>
 
-        <div className="text-xl py-4">
-          <h2 >ค่าขนส่ง: {shippingCost} THB</h2>
-        </div>
-
+        {/* รวมราคาทั้งหมด รวมค่าส่ง */}
         <div className="text-2xl font-bold text-rose-700">
-          <h2>รวมราคา: {calculateTotalPrice()} THB</h2>
+          <h2>ราคารวมสินค้าทั้งหมด:{calculateTotalPrice()} THB</h2>
         </div>
 
         <h2 className='text-3xl font-bold py-3'>รายการสินค้า</h2>
-        <h2 className='text-1xl font-bold py-3'>* click!! ที่ภาพเพื่อเลือกสินค้า *</h2> 
+        <h2 className='text-1xl font-bold py-3'>* click!! ที่ภาพเพื่อเลือกสินค้า *</h2>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative">
